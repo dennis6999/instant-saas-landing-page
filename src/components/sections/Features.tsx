@@ -63,17 +63,17 @@ export function Features() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <Card 
               key={index} 
               className={`group border-0 shadow-soft hover:shadow-medium transition-smooth bg-card/50 backdrop-blur-sm animate-fade-in hover:scale-105
                 ${index % 2 === 1 ? 'bg-gradient-to-br from-primary/10 to-accent/10' : ''}
-                ${index % 3 === 1 ? 'lg:mt-12' : ''} ${index % 3 === 2 ? 'lg:mt-24' : ''}`}
+                ${index % 3 === 1 ? 'lg:mt-12' : ''} ${index % 3 === 2 ? 'lg:mt-24' : ''} w-full max-w-full`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-lg bg-gradient-primary mb-4 group-hover:scale-110 transition-smooth">
+              <CardContent className="p-5 sm:p-8 flex flex-col items-center text-center">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-primary mb-4 group-hover:scale-110 transition-smooth">
                   <feature.icon />
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>

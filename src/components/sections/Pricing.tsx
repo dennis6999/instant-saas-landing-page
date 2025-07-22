@@ -97,13 +97,12 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <Card 
               key={index}
-              className={`relative border-2 transition-smooth hover:shadow-medium animate-scale-in hover:scale-105 ${
-                plan.popular ? "border-primary shadow-soft scale-105 z-10" : "border-border"
-              }`}
+              className={`relative border-2 transition-smooth hover:shadow-medium animate-scale-in hover:scale-105 w-full max-w-full
+                ${plan.popular ? "border-primary shadow-soft scale-105 z-10" : "border-border"}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {plan.popular && (
@@ -111,12 +110,10 @@ export function Pricing() {
                   Most Popular
                 </Badge>
               )}
-              
-              <CardContent className="p-6 md:p-8">
+              <CardContent className="p-5 md:p-8 flex flex-col items-center text-center">
                 <div className="text-center">
                   <h3 className="text-xl md:text-2xl font-bold">{plan.name}</h3>
                   <p className="mt-2 text-muted-foreground text-sm md:text-base">{plan.description}</p>
-                  
                   <div className="mt-6">
                     <span className="text-3xl md:text-4xl font-bold">
                       ${isYearly ? Math.floor(plan.yearlyPrice / 12) : plan.monthlyPrice}
@@ -128,18 +125,14 @@ export function Pricing() {
                       </p>
                     )}
                   </div>
-
                   <Button 
-                    className={`w-full mt-6 transition-smooth ${
-                      plan.popular ? "bg-gradient-primary hover:opacity-90" : ""
-                    } text-base md:text-lg`}
+                    className={`w-full mt-6 transition-smooth ${plan.popular ? "bg-gradient-primary hover:opacity-90" : ""} text-base md:text-lg`}
                     variant={plan.popular ? "default" : "outline"}
                   >
                     Get Started
                   </Button>
                 </div>
-
-                <ul className="mt-8 space-y-3">
+                <ul className="mt-6 space-y-2 w-full text-left">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start text-sm md:text-base">
                       <Check className="h-5 w-5 text-primary mt-0.5 mr-3 shrink-0" />

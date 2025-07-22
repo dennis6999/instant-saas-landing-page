@@ -14,7 +14,7 @@ const sections = [
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-background py-20 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-background py-20 px-4 sm:px-0">
       <Card className="w-full max-w-2xl shadow-2xl border-2 border-primary/30 bg-white/90 dark:bg-card/90 backdrop-blur-lg rounded-3xl">
         <CardContent className="p-12 sm:p-16">
           <div className="mb-8">

@@ -14,7 +14,7 @@ export function Header() {
   }, []);
   return (
     <header className={`sticky top-0 z-50 w-full border-b transition-smooth ${scrolled ? "bg-background shadow-lg text-foreground" : "bg-background/80 backdrop-blur-sm text-foreground"}`} aria-label="Site header">
-      <div className="container flex h-16 items-center justify-between gap-2">
+      <div className="container flex h-16 items-center justify-between gap-2 px-4 md:px-8">
         <div className="flex items-center flex-shrink-0">
           <a href="/" aria-label="Home" className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-accent shadow-soft focus:outline-none focus:ring-2 focus:ring-primary">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,17 +23,17 @@ export function Header() {
               <rect x="7" y="15" width="12" height="3" rx="1.5" fill="#7c3aed" />
             </svg>
           </a>
-          <nav className="hidden md:flex items-center gap-6 min-w-0 ml-6">
-            <a href="#features" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth" aria-label="Features section">
+          <nav className="hidden md:flex items-center gap-4 lg:gap-6 min-w-0 ml-4">
+            <a href="#features" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Features section">
               Features
             </a>
-            <a href="#pricing" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth" aria-label="Pricing section">
+            <a href="#pricing" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Pricing section">
               Pricing
             </a>
-            <a href="#testimonials" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth" aria-label="Reviews section">
+            <a href="#testimonials" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Reviews section">
               Reviews
             </a>
-            <a href="#faq" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth" aria-label="FAQ section">
+            <a href="#faq" className="nav-link text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" aria-label="FAQ section">
               FAQ
             </a>
           </nav>

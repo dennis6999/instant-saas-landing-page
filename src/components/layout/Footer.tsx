@@ -3,11 +3,11 @@ import { Twitter, Github, Dribbble } from "lucide-react";
 export function Footer() {
   return (
     <footer className="border-t bg-background text-foreground/80" aria-label="Site footer">
-      <div className="container py-20 px-4">
+      <div className="container py-20 px-4 sm:px-8">
         {/* Newsletter Signup */}
-        <div className="newsletter-premium mb-12 mt-16 w-full max-w-lg mx-auto">
-          <input type="email" placeholder="Your email address" aria-label="Email address" />
-          <button type="button" onClick={() => alert('Subscribed! (Demo only)')}>Subscribe</button>
+        <div className="newsletter-premium mb-12 mt-16 w-full max-w-lg mx-auto flex flex-col sm:flex-row gap-3 sm:gap-0">
+          <input type="email" placeholder="Your email address" aria-label="Email address" className="flex-1 rounded-lg border border-border px-4 py-3 text-base focus:outline-none focus:ring-2 focus:ring-primary bg-background" />
+          <button type="button" onClick={() => alert('Subscribed! (Demo only)')} className="mt-3 sm:mt-0 sm:ml-3 px-6 py-3 rounded-lg bg-gradient-to-br from-primary to-accent text-white font-semibold shadow-soft hover:opacity-90 transition-smooth">Subscribe</button>
         </div>
         <div className="grid gap-12 md:grid-cols-4 mb-10 text-center md:text-left">
           <div>

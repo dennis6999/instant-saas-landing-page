@@ -105,7 +105,7 @@ export function Testimonials() {
                   <div
                     key={idx}
                     className={`embla__slide flex-shrink-0 w-full md:w-1/3 ${slideClass}`}
-                    style={{ maxWidth: 600, height: 420 }}
+                    style={{ maxWidth: idx === selectedIndex ? 600 : 520, minWidth: 0, height: 420 }}
                   >
                     <Card
                       className="w-full h-[420px] border-0 shadow-soft bg-card/50 backdrop-blur-sm animate-fade-in-up embla__slide__inner flex flex-col justify-between"

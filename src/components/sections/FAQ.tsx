@@ -21,15 +21,15 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24" aria-label="Frequently Asked Questions">
+    <section id="faq" className="py-16 sm:py-24 px-4" aria-label="Frequently Asked Questions">
       <div className="container max-w-3xl">
-        <div className="text-center animate-fade-in">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+        <div className="text-center animate-fade-in mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
             Frequently Asked <span className="text-gradient-primary">Questions</span>
           </h2>
         </div>
         
-        <Accordion type="single" collapsible className="mt-16 animate-slide-up">
+        <Accordion type="single" collapsible className="mt-8 sm:mt-16 animate-slide-up">
           {faqs.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`}>
               <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>

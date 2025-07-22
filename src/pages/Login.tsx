@@ -21,7 +21,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-background text-foreground">
+    <div className="min-h-screen flex flex-col md:flex-row bg-background text-foreground px-4 sm:px-0">
       {/* Left: Gradient + Illustration */}
       <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-gradient-to-br from-primary to-accent p-12 relative overflow-hidden">
         <div className="absolute inset-0 opacity-30 pointer-events-none select-none">

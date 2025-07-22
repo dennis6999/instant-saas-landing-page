@@ -55,3 +55,12 @@
 
 ## License
 See `LICENSE.txt` for details.
+
+## Support
+For support, please contact the author via ThemeForest or the support email provided in the documentation.
+
+## Thank You
+Thank you for purchasing this template! If you like it, please consider leaving a rating on ThemeForest.
+
+## Important
+- The Terms of Service and Privacy Policy pages are placeholders. You must replace them with your own legal content before deploying your SaaS.
