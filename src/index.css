@@ -140,6 +140,10 @@
   }
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
 /* Utility Classes for SaaS Landing */
 @layer utilities {
   .bg-gradient-primary {

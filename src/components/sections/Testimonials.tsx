@@ -87,8 +87,8 @@ export function Testimonials() {
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
-          <div className="overflow-hidden w-full max-w-4xl" ref={emblaRef}>
-            <div className="flex gap-4 md:gap-8">
+          <div className="overflow-hidden w-full max-w-4xl min-w-0" ref={emblaRef}>
+            <div className="flex gap-4 md:gap-8 min-w-0 max-w-full">
               {testimonials.map((testimonial, idx) => {
                 let slideClass = "transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform ";
                 if (idx === selectedIndex) {
@@ -104,7 +104,7 @@ export function Testimonials() {
                 return (
                   <div
                     key={idx}
-                    className={`embla__slide flex-shrink-0 w-full md:w-1/3 ${slideClass}`}
+                    className={`embla__slide flex-shrink-0 w-full md:w-1/3 ${slideClass} min-w-0 max-w-full`}
                     style={{ maxWidth: idx === selectedIndex ? 600 : 520, minWidth: 0, height: 420 }}
                   >
                     <Card
