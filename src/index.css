@@ -342,3 +342,8 @@ body, html {
     outline-offset: 2px;
   }
 }
+
+.force-blur-repaint {
+  /* This triggers a repaint for backdrop-blur without affecting layout or design */
+  --blur-repaint: 1;
+}

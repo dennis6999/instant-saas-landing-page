@@ -12,6 +12,15 @@ export function Header() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Fix: Force repaint for backdrop-blur when mobile menu opens
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add("force-blur-repaint");
+      // Remove after a tick to trigger repaint
+      setTimeout(() => document.body.classList.remove("force-blur-repaint"), 50);
+    }
+  }, [mobileOpen]);
   return (
     <header className={`fixed top-0 left-0 w-full z-50 border-b transition-smooth ${scrolled ? "bg-background shadow-lg text-foreground" : "bg-background/80 backdrop-blur-sm text-foreground"}`} aria-label="Site header">
       <div className="container flex h-16 items-center justify-between gap-2 px-4 md:px-8">
