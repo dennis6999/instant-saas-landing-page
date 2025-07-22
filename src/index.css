@@ -188,4 +188,153 @@
   .hero-glow {
     background: radial-gradient(circle at center, hsl(var(--primary-glow) / 0.1), transparent 70%);
   }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-16px); }
+  }
+
+  .btn-premium {
+    background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 4px 24px 0 rgba(60, 80, 180, 0.08);
+    transition: box-shadow 0.3s, transform 0.2s, background 0.3s;
+    border-radius: 0.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-premium:hover, .btn-premium:focus {
+    box-shadow: 0 8px 32px 0 rgba(60, 80, 180, 0.16);
+    transform: translateY(-2px) scale(1.03);
+    background: linear-gradient(90deg, #34d399 0%, #2563eb 100%);
+  }
+  .testimonial-bubble {
+    background: hsl(var(--card));
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .testimonial-bubble:after {
+    content: '';
+    position: absolute;
+    left: 2.5rem;
+    bottom: -16px;
+    width: 32px;
+    height: 16px;
+    background: hsl(var(--card));
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: var(--shadow-soft);
+    z-index: 1;
+  }
+  .avatar-premium {
+    border: 3px solid #34d399;
+    box-shadow: 0 2px 8px 0 rgba(60, 80, 180, 0.10);
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.4,0,0.2,1) both;
+  }
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .newsletter-premium {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: hsl(var(--card));
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px 0 hsl(var(--shadow-soft, 222 20% 10% / 0.08));
+    padding: 0.5rem 1rem;
+    max-width: 400px;
+    margin: 0 auto 2rem auto;
+    gap: 0.5rem;
+  }
+  .newsletter-premium input[type="email"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+  .newsletter-premium button {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)));
+    color: hsl(var(--primary-foreground));
+    font-weight: 600;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px 0 hsl(var(--shadow-soft, 222 20% 10% / 0.08));
+  }
+  .newsletter-premium button:hover {
+    background: linear-gradient(90deg, hsl(var(--accent)), hsl(var(--primary)));
+  }
+  .footer-socials {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .footer-socials a {
+    color: hsl(var(--primary));
+    background: hsl(var(--card));
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px 0 hsl(var(--shadow-soft, 222 20% 10% / 0.08));
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    font-size: 1.25rem;
+  }
+  .footer-socials a:hover {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-2px) scale(1.08);
+  }
+  .animate-blob-move {
+    animation: blobMove 16s ease-in-out infinite alternate;
+  }
+  @keyframes blobMove {
+    0% { transform: translateX(-50%) scale(1) rotate(0deg); }
+    50% { transform: translateX(-50%) scale(1.04) rotate(2deg); }
+    100% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  }
+  .nav-link {
+    position: relative;
+    transition: color 0.2s;
+  }
+  .nav-link:after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -2px;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+    z-index: 1;
+  }
+  .nav-link:hover:after, .nav-link:focus:after {
+    transform: scaleX(1);
+  }
+  .nav-link:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
+  .btn-premium:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+  }
 }

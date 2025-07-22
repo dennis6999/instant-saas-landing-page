@@ -1,18 +1,17 @@
+import { Twitter, Github, Dribbble } from "lucide-react";
+
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/50">
-      <div className="container py-16">
-        <div className="grid gap-8 md:grid-cols-4">
+    <footer className="border-t bg-background text-foreground/80" aria-label="Site footer">
+      <div className="container py-20 px-4">
+        {/* Newsletter Signup */}
+        <div className="newsletter-premium mb-12 mt-16 w-full max-w-lg mx-auto">
+          <input type="email" placeholder="Your email address" aria-label="Email address" />
+          <button type="button" onClick={() => alert('Subscribed! (Demo only)')}>Subscribe</button>
+        </div>
+        <div className="grid gap-12 md:grid-cols-4 mb-10 text-center md:text-left">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-primary">
-                <span className="text-lg font-bold text-white">S</span>
-              </div>
-              <span className="text-xl font-bold">SaasFlow</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Scale your business effortlessly with our all-in-one platform.
-            </p>
+            {/* Logo and name removed for white-label */}
           </div>
           
           <div>
@@ -43,8 +42,17 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          © 2024 SaasFlow. All rights reserved.
+        {/* Social Icons */}
+        <div className="footer-socials mt-10 mb-6 justify-center md:justify-start">
+          <a href="#" aria-label="Twitter" title="Twitter"><Twitter size={22} strokeWidth={2.2} /></a>
+          <a href="#" aria-label="GitHub" title="GitHub"><Github size={22} strokeWidth={2.2} /></a>
+          <a href="#" aria-label="Dribbble" title="Dribbble"><Dribbble size={22} strokeWidth={2.2} /></a>
+        </div>
+        
+        <div className="border-t mt-12 pt-8 text-center text-xs sm:text-sm text-muted-foreground flex flex-col sm:flex-row items-center justify-center gap-2">
+          <a href="/terms" className="hover:underline mx-2">Terms of Service</a>
+          <span className="hidden sm:inline">|</span>
+          <a href="/privacy" className="hover:underline mx-2">Privacy Policy</a>
         </div>
       </div>
     </footer>

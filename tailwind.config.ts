@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -18,49 +19,55 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ["Inter", "ui-sans-serif", "system-ui"],
+				heading: ["Inter", "ui-sans-serif", "system-ui"],
+			},
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))',
 					light: 'hsl(var(--primary-light))',
-					glow: 'hsl(var(--primary-glow))'
+					dark: 'hsl(var(--primary-dark, var(--primary)))',
+					accent: 'hsl(var(--primary-accent, var(--primary)))',
+					mint: 'hsl(var(--primary-mint, var(--primary)))',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))',
-					light: 'hsl(var(--secondary-light))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))',
-					dark: 'hsl(var(--muted-dark))'
+					light: 'hsl(var(--secondary-light))',
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+				muted: {
+					DEFAULT: 'hsl(var(--muted))',
+					dark: 'hsl(var(--muted-dark))',
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--card-foreground))',
+				},
+				border: 'hsl(var(--border))',
+				input: 'hsl(var(--input))',
+				ring: 'hsl(var(--ring))',
+				destructive: {
+					DEFAULT: 'hsl(var(--destructive))',
+					foreground: 'hsl(var(--destructive-foreground))',
 				},
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '1rem',
+				md: '0.75rem',
+				sm: '0.5rem',
+			},
+			boxShadow: {
+				soft: '0 4px 24px 0 rgba(60, 80, 180, 0.08)',
+				medium: '0 8px 32px 0 rgba(60, 80, 180, 0.12)',
+			},
+			backgroundImage: {
+				'hero-gradient': 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+				'section-wave': 'url(/public/wave.svg)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -98,5 +105,7 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		tailwindcssAnimate
+	],
 } satisfies Config;

@@ -21,7 +21,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24">
+    <section id="faq" className="py-24" aria-label="Frequently Asked Questions">
       <div className="container max-w-3xl">
         <div className="text-center animate-fade-in">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">

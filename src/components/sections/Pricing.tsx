@@ -56,7 +56,10 @@ export function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section id="pricing" className="py-24">
+    <section id="pricing" className="relative py-24 bg-background text-foreground px-4">
+      <svg className="absolute top-0 left-0 w-full" height="64" viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" style={{zIndex:2}}>
+        <path d="M0,32 C360,0 1080,64 1440,32 L1440,0 L0,0 Z" fill="hsl(var(--background))" />
+      </svg>
       <div className="container">
         <div className="text-center animate-fade-in">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
@@ -94,12 +97,12 @@ export function Pricing() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {plans.map((plan, index) => (
             <Card 
               key={index}
-              className={`relative border-2 transition-smooth hover:shadow-medium animate-scale-in ${
-                plan.popular ? "border-primary shadow-soft" : "border-border"
+              className={`relative border-2 transition-smooth hover:shadow-medium animate-scale-in hover:scale-105 ${
+                plan.popular ? "border-primary shadow-soft scale-105 z-10" : "border-border"
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -109,18 +112,18 @@ export function Pricing() {
                 </Badge>
               )}
               
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="text-center">
-                  <h3 className="text-2xl font-bold">{plan.name}</h3>
-                  <p className="mt-2 text-muted-foreground">{plan.description}</p>
+                  <h3 className="text-xl md:text-2xl font-bold">{plan.name}</h3>
+                  <p className="mt-2 text-muted-foreground text-sm md:text-base">{plan.description}</p>
                   
                   <div className="mt-6">
-                    <span className="text-4xl font-bold">
+                    <span className="text-3xl md:text-4xl font-bold">
                       ${isYearly ? Math.floor(plan.yearlyPrice / 12) : plan.monthlyPrice}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                     {isYearly && (
-                      <p className="text-sm text-muted-foreground mt-1">
+                      <p className="text-xs md:text-sm text-muted-foreground mt-1">
                         Billed annually (${plan.yearlyPrice}/year)
                       </p>
                     )}
@@ -129,7 +132,7 @@ export function Pricing() {
                   <Button 
                     className={`w-full mt-6 transition-smooth ${
                       plan.popular ? "bg-gradient-primary hover:opacity-90" : ""
-                    }`}
+                    } text-base md:text-lg`}
                     variant={plan.popular ? "default" : "outline"}
                   >
                     Get Started
@@ -138,7 +141,7 @@ export function Pricing() {
 
                 <ul className="mt-8 space-y-3">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
+                    <li key={featureIndex} className="flex items-start text-sm md:text-base">
                       <Check className="h-5 w-5 text-primary mt-0.5 mr-3 shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </li>
@@ -153,6 +156,9 @@ export function Pricing() {
           All plans include 14-day free trial. No credit card required.
         </p>
       </div>
+      <svg className="absolute bottom-0 left-0 w-full" height="64" viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" style={{zIndex:2}}>
+        <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="hsl(var(--background))" />
+      </svg>
     </section>
   );
 }
