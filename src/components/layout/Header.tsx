@@ -13,7 +13,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header className={`sticky top-0 z-50 w-full border-b transition-smooth ${scrolled ? "bg-background shadow-lg text-foreground" : "bg-background/80 backdrop-blur-sm text-foreground"}`} aria-label="Site header">
+    <header className={`fixed top-0 left-0 w-full z-50 border-b transition-smooth ${scrolled ? "bg-background shadow-lg text-foreground" : "bg-background/80 backdrop-blur-sm text-foreground"}`} aria-label="Site header">
       <div className="container flex h-16 items-center justify-between gap-2 px-4 md:px-8">
         <div className="flex items-center flex-shrink-0">
           <a href="/" aria-label="Home" className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-br from-primary to-accent shadow-soft focus:outline-none focus:ring-2 focus:ring-primary">
@@ -40,20 +40,25 @@ export function Header() {
         </div>
         {/* Mobile Menu Popover */}
         {mobileOpen && (
-          <div className="fixed inset-0 z-50 bg-black/40" onClick={() => setMobileOpen(false)}>
+          <div className="fixed inset-0 z-50 flex items-start justify-end bg-black/40 backdrop-blur-sm" onClick={() => setMobileOpen(false)}>
             <nav
-              className="absolute right-4 top-4 w-56 rounded-xl bg-white shadow-2xl p-6 flex flex-col gap-4 animate-fade-in-up"
+              className="mt-4 mr-4 w-64 rounded-2xl bg-white/70 dark:bg-background/80 backdrop-blur-xl border border-white/30 dark:border-white/10 shadow-2xl p-7 flex flex-col gap-3 animate-fade-in-up glass-nav-menu"
+              style={{boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)'}}
               aria-label="Mobile navigation"
               onClick={e => e.stopPropagation()}
             >
-              <a href="#features" className="nav-link text-base font-medium text-muted-foreground hover:text-foreground transition-smooth" onClick={() => setMobileOpen(false)}>Features</a>
-              <a href="#pricing" className="nav-link text-base font-medium text-muted-foreground hover:text-foreground transition-smooth" onClick={() => setMobileOpen(false)}>Pricing</a>
-              <a href="#testimonials" className="nav-link text-base font-medium text-muted-foreground hover:text-foreground transition-smooth" onClick={() => setMobileOpen(false)}>Reviews</a>
-              <a href="#faq" className="nav-link text-base font-medium text-muted-foreground hover:text-foreground transition-smooth" onClick={() => setMobileOpen(false)}>FAQ</a>
-              <Link to="/login" className="w-full mt-2" onClick={() => setMobileOpen(false)}>
-                <Button size="sm" className="w-full" variant="ghost">Log in</Button>
-              </Link>
-              <Button size="sm" className="btn-premium w-full mt-2" onClick={() => setMobileOpen(false)}>Start Free Trial</Button>
+              <div className="mb-2 flex flex-col gap-2">
+                <a href="#features" className="nav-link text-base font-semibold text-foreground/90 hover:text-primary transition-smooth px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 bg-white/40 dark:bg-white/5 hover:bg-primary/10" onClick={() => setMobileOpen(false)}>Features</a>
+                <a href="#pricing" className="nav-link text-base font-semibold text-foreground/90 hover:text-primary transition-smooth px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 bg-white/40 dark:bg-white/5 hover:bg-primary/10" onClick={() => setMobileOpen(false)}>Pricing</a>
+                <a href="#testimonials" className="nav-link text-base font-semibold text-foreground/90 hover:text-primary transition-smooth px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 bg-white/40 dark:bg-white/5 hover:bg-primary/10" onClick={() => setMobileOpen(false)}>Reviews</a>
+                <a href="#faq" className="nav-link text-base font-semibold text-foreground/90 hover:text-primary transition-smooth px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 bg-white/40 dark:bg-white/5 hover:bg-primary/10" onClick={() => setMobileOpen(false)}>FAQ</a>
+              </div>
+              <div className="mt-2 flex flex-col gap-2">
+                <Link to="/login" className="w-full" onClick={() => setMobileOpen(false)}>
+                  <Button size="lg" className="w-full rounded-xl font-semibold shadow-none bg-white/60 dark:bg-white/10 text-primary border border-primary/20 hover:bg-primary/10 transition-smooth">Log in</Button>
+                </Link>
+                <Button size="lg" className="btn-premium w-full rounded-xl font-semibold shadow-md mt-1" onClick={() => setMobileOpen(false)}>Start Free Trial</Button>
+              </div>
             </nav>
           </div>
         )}

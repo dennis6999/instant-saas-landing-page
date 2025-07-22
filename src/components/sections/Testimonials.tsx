@@ -107,30 +107,30 @@ export function Testimonials() {
                     className={`embla__slide flex-shrink-0 w-full md:w-1/3 ${slideClass} min-w-0 max-w-full`}
                     style={{ maxWidth: idx === selectedIndex ? 600 : 520, minWidth: 0, height: 420 }}
                   >
-                    <Card
+            <Card 
                       className="w-full h-[420px] border-0 shadow-soft bg-card/50 backdrop-blur-sm animate-fade-in-up embla__slide__inner flex flex-col justify-between"
-                    >
+            >
                       <CardContent className="testimonial-bubble p-8 sm:p-12 flex flex-col flex-1 justify-between">
                         <div className="flex mb-4 text-base sm:text-lg">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 fill-primary text-primary" />
-                          ))}
-                        </div>
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                  ))}
+                </div>
                         <blockquote className="text-foreground mb-6 text-sm sm:text-base">
-                          "{testimonial.content}"
-                        </blockquote>
-                        <div className="flex items-center">
+                  "{testimonial.content}"
+                </blockquote>
+                <div className="flex items-center">
                           <Avatar className="h-10 w-10 sm:h-12 sm:w-12 mr-4 avatar-premium">
                             <AvatarImage src={testimonial.avatar} alt={testimonial.name} loading="lazy" />
-                            <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                          </Avatar>
-                          <div>
+                    <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  </Avatar>
+                  <div>
                             <div className="font-semibold text-base sm:text-lg">{testimonial.name}</div>
                             <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</div>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
                   </div>
                 );
               })}

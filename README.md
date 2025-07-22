@@ -2,16 +2,13 @@
 
 ## Installation
 
-1. Clone the repository:
-   ```sh
-   git clone <YOUR_GIT_URL>
-   cd minimal-saas-landing
-   ```
-2. Install dependencies:
+1. Extract the contents of the zip file you downloaded from Envato/ThemeForest to your desired folder.
+2. Open a terminal in the extracted folder.
+3. Install dependencies:
    ```sh
    npm install
    ```
-3. Start the development server:
+4. Start the development server:
    ```sh
    npm run dev
    ```

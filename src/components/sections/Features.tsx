@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Zap, Shield, Users, BarChart3, Workflow, Clock } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 
 const features = [
   {
@@ -46,6 +47,20 @@ const features = [
   }
 ];
 
+function useInView(threshold = 0.2) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return [ref, inView] as const;
+}
+
 export function Features() {
   return (
     <section id="features" className="relative py-24 bg-background text-foreground px-4">
@@ -64,23 +79,29 @@ export function Features() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <Card 
-              key={index} 
-              className={`group border-0 shadow-soft hover:shadow-medium transition-smooth bg-card/50 backdrop-blur-sm animate-fade-in hover:scale-105
-                ${index % 2 === 1 ? 'bg-gradient-to-br from-primary/10 to-accent/10' : ''}
-                ${index % 3 === 1 ? 'lg:mt-12' : ''} ${index % 3 === 2 ? 'lg:mt-24' : ''} w-full max-w-full`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <CardContent className="p-5 sm:p-8 flex flex-col items-center text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-primary mb-4 group-hover:scale-110 transition-smooth">
-                  <feature.icon />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm sm:text-base">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+          {features.map((feature, index) => {
+            const [ref, inView] = useInView(0.18);
+            return (
+              <Card 
+                key={index} 
+                ref={ref}
+                className={`group border-0 shadow-soft hover:shadow-medium transition-smooth bg-card/50 backdrop-blur-sm w-full max-w-full
+                  ${index % 2 === 1 ? 'bg-gradient-to-br from-primary/10 to-accent/10' : ''}
+                  ${index % 3 === 1 ? 'lg:mt-12' : ''} ${index % 3 === 2 ? 'lg:mt-24' : ''}
+                  ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                  duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <CardContent className="p-5 sm:p-8 flex flex-col items-center text-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-primary mb-4 group-hover:scale-110 transition-smooth">
+                    <feature.icon />
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground text-sm sm:text-base">{feature.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
       <svg className="absolute bottom-0 left-0 w-full" height="64" viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" style={{zIndex:2}}>
