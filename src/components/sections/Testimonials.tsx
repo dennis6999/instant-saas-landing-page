@@ -50,7 +50,7 @@ const testimonials = [
 ];
 
 export function Testimonials() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', slidesToScroll: 1 });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', slidesToScroll: 1, dragFree: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Update selected index on scroll
@@ -90,8 +90,7 @@ export function Testimonials() {
           <div className="overflow-hidden w-full max-w-4xl" ref={emblaRef}>
             <div className="flex gap-4 md:gap-8">
               {testimonials.map((testimonial, idx) => {
-                // Calculate position relative to center
-                let slideClass = "transition-all duration-500 ";
+                let slideClass = "transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-transform ";
                 if (idx === selectedIndex) {
                   slideClass += "scale-105 shadow-2xl z-20 bg-card/90 ";
                 } else if (

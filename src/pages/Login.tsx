@@ -1,11 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSuccess(true);
+      setTimeout(() => navigate("/"), 1200);
+    }, 1200);
+  }
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row bg-background text-foreground">
       {/* Left: Gradient + Illustration */}
@@ -28,6 +42,11 @@ export default function Login() {
           <CardContent className="p-10">
             <h2 className="text-3xl font-extrabold mb-2 text-center bg-gradient-to-r from-primary via-primary-accent to-accent bg-clip-text text-transparent">Sign in</h2>
             <p className="text-muted-foreground mb-8 text-center">Sign in to your account to continue</p>
+            {success && (
+              <div className="mb-6 text-green-600 bg-green-100 dark:bg-green-900/30 rounded-lg px-4 py-3 text-center font-semibold animate-fade-in-up">
+                Login successful! Redirecting...
+              </div>
+            )}
             <Button type="button" className="w-full flex items-center justify-center gap-2 mb-6 bg-background border border-border text-foreground hover:bg-muted transition-smooth shadow-none font-semibold">
               <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="h-5 w-5" />
               Sign in with Google
@@ -37,7 +56,7 @@ export default function Login() {
               <span className="mx-4 text-muted-foreground text-xs uppercase tracking-widest">or</span>
               <div className="flex-1 h-px bg-border" />
             </div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
                 <Input id="email" type="email" autoComplete="email" required className="bg-background" />
@@ -57,7 +76,10 @@ export default function Login() {
                   </button>
                 </div>
               </div>
-              <Button type="submit" className="w-full btn-premium text-base py-3 rounded-xl shadow-soft">Sign In</Button>
+              <Button type="submit" className="w-full btn-premium text-base py-3 rounded-xl shadow-soft" disabled={loading || success}>
+                {loading ? <span className="animate-spin mr-2 inline-block w-5 h-5 border-2 border-t-transparent border-primary rounded-full align-middle" /> : null}
+                Sign In
+              </Button>
             </form>
             <div className="mt-8 text-center text-sm">
               <span>Don’t have an account?{' '}</span>
