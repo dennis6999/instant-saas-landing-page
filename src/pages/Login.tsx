@@ -37,7 +37,7 @@ export default function Login() {
         </div>
       </div>
       {/* Right: Login Card */}
-      <div className="flex flex-1 items-center justify-center px-4 py-12">
+      <div className="flex flex-1 min-h-screen items-center justify-center px-0 py-8 sm:px-4 sm:py-12 flex-col">
         <Card className="w-full max-w-md shadow-soft bg-card/90 backdrop-blur-md border border-border rounded-2xl">
           <CardContent className="p-10">
             <h2 className="text-3xl font-extrabold mb-2 text-center bg-gradient-to-r from-primary via-primary-accent to-accent bg-clip-text text-transparent">Sign in</h2>

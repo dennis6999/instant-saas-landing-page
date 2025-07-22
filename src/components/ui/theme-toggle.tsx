@@ -7,7 +7,7 @@ export function ThemeToggle() {
   useEffect(() => {
     // Set initial state from localStorage or system
     const root = window.document.documentElement;
-    const saved = localStorage.getItem("theme");
+    const saved = localStorage.getItem("saasflow-theme");
     if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
       root.classList.add("dark");
       setIsDark(true);
@@ -22,11 +22,11 @@ export function ThemeToggle() {
     console.log("Theme toggle clicked");
     if (root.classList.contains("dark")) {
       root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("saasflow-theme", "light");
       setIsDark(false);
     } else {
       root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("saasflow-theme", "dark");
       setIsDark(true);
     }
   };
